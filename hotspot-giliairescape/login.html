@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="favicon.ico">
+	<title>Hotspot Login</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/pages/login.js"></script>
+	<script type="text/javascript" src="assets/js/validate.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/plugins/ui/ripple.min.js"></script>
+	<!-- /theme JS files -->
+
+</head>
+
+<body class="login-container">
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />	
+		<input type="hidden" name="popup" value="false" />
+	</form>
+	
+	<script type="text/javascript" src="md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = document.login.password.value;
+		document.sendin.submit();
+		return false;
+	    }
+	-->
+	</script>
+$(endif)
+	<div class="page-container pb-20">
+		<div class="page-content">
+			<div class="content-wrapper">
+				<form name="login" id="hotspot_login_form" action="$(link-login-only)" method="post" />
+					    <input type="hidden" name="dst" value="$(link-orig)" />
+						<input type="hidden" name="popup" value="false" />
+					<div class="panel panel-body login-form">
+                        <div class="text-center">
+						 <img src="./assets/img/logo-sunset.png" class="img-responsive logo" />
+							<h5 class="content-group-lg">Guest Hotspot Login</h5>
+							$(if error)<div style="color: #FF8080; font-size: 12px;text-align: center; font-weight: bold;">$(error)</div>$(endif)
+						</div>
+						<div class="form-group has-feedback has-feedback-left">
+							<input type="text" name="username" class="form-control" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'">
+							<div class="form-control-feedback">
+								<i class="icon-user text-muted"></i>
+							</div>
+						</div>
+
+						<div class="form-group has-feedback has-feedback-left">
+							<input type="password" name="password" class="form-control" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'">
+							<div class="form-control-feedback">
+								<i class="icon-lock2 text-muted"></i>
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn bg-blue btn-block">Login <i class="icon-arrow-right14 position-right"></i></button>
+						</div>
+						<div class="form-group text-center">
+							<span>Powered By</span>
+							<a href="http://gmedia.net.id" target="_blank">
+								<img src="img/logo-gmedia.png" class="center-block img-responsive gmedia">
+							</a>
+                        </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+                $("#hotspot_login_form").validate({
+                        errorPlacement: function(error, element) {
+                        $('.error_label').html(error);
+                    },
+                        rules: {
+                                username: {
+                                        required: true,
+                                },
+                                password: {
+						required: true,                          
+                                }
+                        },
+                        messages: {
+                                username: {
+                                        required: "Username, Password and Term & Conditions are required",                                        
+                                },
+                                password: {
+                                        required: "Username, Password and Term & Conditions are required",                                        
+                                }
+                        },
+                   submitHandler: function(form) {
+    				doLogin();
+  							}
+                });
+                
+        </script>
+
+</body>
+</html>
